@@ -1,0 +1,29 @@
+.containerHome{
+    width: auto;
+    margin: 0 auto;
+    background-color:#e2e1e0;
+    font-family: 'Titillium Web', sans-serif;
+    padding: 10px;
+}
+
+h1{
+    margin: 0 auto 0 auto;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.tittleContainer{
+    width: 400px;
+    margin: 0 auto;
+}
+.movieList{
+    max-width: 1700px;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.loaderContainer{
+    width: 200px;
+    margin: 130px auto;
+  }
+
