@@ -18,12 +18,14 @@ export default class Movies extends Component {
 
   componentDidMount(){
     const {query} = queryString.parse(this.props.location.search)
+    
      if(query){
         getProductsFilter(query).then(data =>
             this.setState({ filtered: [...data.data.results] }))
+            console.log(this.props.location)
      }else{
       getProductsFilter('Love').then(data =>
-        this.setState({ filtered: [...data.data.results] }))
+        this.setState({ filtered: [...data.data.results]}))
      }
      
 
@@ -31,8 +33,10 @@ export default class Movies extends Component {
   componentDidUpdate(prevProps, prevState){
     // const {query: prevQuery} = queryString.parse(prevProps.location.search)
     // const {query: nextQuery} = queryString.parse(this.props.location.search)
-    
-}
+  }
+
+ 
+
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -82,7 +86,7 @@ export default class Movies extends Component {
         {this.state.loading && <div className={style.loaderContainer}><Loader type="ThreeDots" color="#00BFFF" height={200} width={200} /></div>}
         <ul className={style.movieList}>
           {this.state.filtered.map(items => (
-            <MovieItem items={items} key={items.id} onClick={this.onClick} />
+            <MovieItem items={items} key={items.id} onClick={this.onClick} loc={this.props.location}/>
           ))}
         </ul>
         {this.state.filtered.length >1 && <LoadMore onClick={this.loadMore} />}

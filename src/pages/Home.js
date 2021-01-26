@@ -15,6 +15,7 @@ export default class Home extends Component {
        this.setState({ trendingFilms: data.data.results }),
     );
     this.setState({ loading: false })
+   
   }
 
   loadMore = () => {

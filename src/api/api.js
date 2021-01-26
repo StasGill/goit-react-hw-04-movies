@@ -7,16 +7,16 @@ export const getProducts = (page = 1 ) => {
       return response
   }
   
-  export const getProductsFilter = (query,page =1 ) => {
+  export const getProductsFilter = (query,page = 1 ) => {
     const response = axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=2a235b91059bbee0cb0dad81130d7beb&language=en-US&page=${page}&include_adult=false&query=${query}`
       );
       return response
   }
 
-  export const getProductsById = (id ) => {
+  export const getProductsById = (id,params = '' ) => {
     const response = axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=2a235b91059bbee0cb0dad81130d7beb&language=en-US`
+        `https://api.themoviedb.org/3/movie/${id}${params}?api_key=2a235b91059bbee0cb0dad81130d7beb&language=en-US`
       );
       return response
   }
