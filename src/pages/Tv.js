@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './Home.module.css';
-import { getProducts,getProductsTV } from '../api/api';
+import { getProductsTV } from '../api/api';
 import MovieItem from '../components/movieItem/MovieItem';
 import LoadMore from '../components/button/LoadMore';
 import Loader from "react-loader-spinner";

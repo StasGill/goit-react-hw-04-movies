@@ -32,8 +32,8 @@ export default class Home extends Component {
     const targetId = e.target.closest('[data-id]').dataset.id;
     this.props.history.push({
       pathname: `/movies/${targetId}`,
-      state: { id: targetId,
-               name: movie },
+      state: { id: targetId
+               },
     });
   };
 
