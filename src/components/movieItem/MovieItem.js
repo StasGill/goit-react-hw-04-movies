@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './MovieItem.module.css';
-import {  NavLink,Link, useLocation } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 const MovieItem = ({ items, onClick,loc }) => {
   const posterQuery = 'https://image.tmdb.org/t/p/w300/';
@@ -11,7 +11,9 @@ const MovieItem = ({ items, onClick,loc }) => {
     <Link to={{
       pathname: `/movies/${items.id}`,
       state: { from: loc },
-    }}>
+    }}
+    className={style.listItemLink}
+    >
     <li
       className={style.listItem}
       key={items.id}

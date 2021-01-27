@@ -22,7 +22,7 @@ export default class Movies extends Component {
      if(query){
         getProductsFilter(query).then(data =>
             this.setState({ filtered: [...data.data.results] }))
-            console.log(this.props.location)
+            
      }else{
       getProductsFilter('Love').then(data =>
         this.setState({ filtered: [...data.data.results]}))

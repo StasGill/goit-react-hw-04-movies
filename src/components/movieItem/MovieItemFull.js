@@ -9,7 +9,7 @@ import {
 import Credits from '../credits/Credits';
 import Reviews from '../reviews/Reviews';
 import Loader from 'react-loader-spinner';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const initialState = {
   movie: [],
