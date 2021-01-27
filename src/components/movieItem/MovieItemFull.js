@@ -30,7 +30,7 @@ const MovieItemFull = ({ location, match, history }) => {
     const type = match.params.type;
     const params = location.search;
 
-    getProductsById(movieId, type, params)
+    getProductsById(movieId, params)
       .then(item => setState({ movie: { ...item.data } }))
       .catch(error => setState({ error: error }));
   }, [location.search, match.params.id]);

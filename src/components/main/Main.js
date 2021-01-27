@@ -1,6 +1,6 @@
 import React, { Component, lazy , Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
+
 
 
 const AsyncComponentHome = lazy(() => import('../../pages/Home'));

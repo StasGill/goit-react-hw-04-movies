@@ -14,7 +14,7 @@ export const getProducts = (page = 1 ) => {
       return response
   }
 
-  export const getProductsById = (id,type,params = '' ) => {
+  export const getProductsById = (id,params = '' ) => {
     const response = axios.get(
         `https://api.themoviedb.org/3/movie/${id}${params}?api_key=2a235b91059bbee0cb0dad81130d7beb&language=ru`
       );
