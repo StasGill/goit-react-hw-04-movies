@@ -29,7 +29,3 @@ export default class Main extends Component {
 }
 
 
-{/* <Route path="/" exact component={Home} /> */}
-{/* <Route path="/movies/:id" component={MovieItemFull} />
-<Route path="/movies" component={Movies} />
-<Route path="/about" component={About}  /> */}
