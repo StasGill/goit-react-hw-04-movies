@@ -1,9 +1,9 @@
 import React, { Component, lazy , Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../../pages/Home';
-import Movies from '../../pages/Movies';
-import MovieItemFull from '../movieItem/MovieItemFull';
-import About from '../../pages/About'
+// import Home from '../../pages/Home';
+// import Movies from '../../pages/Movies';
+// import MovieItemFull from '../movieItem/MovieItemFull';
+// import About from '../../pages/About'
 
 const AsyncComponentHome = lazy(() => import('../../pages/Home'));
 const AsyncComponentMovieItem = lazy(() => import('../movieItem/MovieItemFull'));
@@ -17,10 +17,10 @@ export default class Main extends Component {
       <>
       <Suspense fallback={<h2>Loading ...</h2>}>
         <Switch>
-         <AsyncComponentHome/>
-         <AsyncComponentMovieItem/>
-         <AsyncComponentMovie/>
-         <AsyncComponentAbout/>
+         <Route path="/" exact component={AsyncComponentHome} />
+         <Route path="/movies/:id" component={AsyncComponentMovieItem} />
+         <Route path="/movies" component={AsyncComponentMovie} />
+         <Route path="/about" component={AsyncComponentAbout}  />
         </Switch>
         </Suspense>
       </>
