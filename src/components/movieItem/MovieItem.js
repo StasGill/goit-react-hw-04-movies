@@ -25,8 +25,8 @@ const MovieItem = ({ items, onClick,loc }) => {
         className={style.listItemImg}
         alt=""
       />
-      <h3 className={style.listItemHeader}>{items.original_name}</h3>
-      <h3 className={style.listItemHeader}>{items.original_title}</h3>
+      <h3 className={style.listItemHeader}>{items.name}</h3>
+      <h3 className={style.listItemHeader}>{items.title}</h3>
     </li>
     </Link>
 

@@ -12,8 +12,9 @@ const Header = () => {
         <header>
         <div className={style.navContainer}>
          <ul className={style.list}>
-          <li>  <NavLink to={{pathname: "/", state: { from: location.pathname }, }} exact className={style.link} activeClassName={style.active}> Home </NavLink></li>
-          <li>  <NavLink to='/movies' className={style.link} activeClassName={style.active}> Movies </NavLink></li>
+          <li>  <NavLink to={{pathname: "/", state: { from: location.pathname }, }} exact className={style.link} activeClassName={style.active}> ТРЕНДЫ </NavLink></li>
+          {/* <li>  <NavLink to='/tv' className={style.link} activeClassName={style.active}> СЕРИАЛЫ </NavLink></li> */}
+          <li>  <NavLink to='/movies' className={style.link} activeClassName={style.active}> ФИЛЬМЫ </NavLink></li>
           
         </ul>
        </div>

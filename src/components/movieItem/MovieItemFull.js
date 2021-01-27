@@ -27,12 +27,13 @@ const MovieItemFull = ({ location, match, history }) => {
     setState({ loading: true });
 
     const movieId = match.params.id;
+    const type = match.params.type;
     const params = location.search;
 
-    getProductsById(movieId, params)
+    getProductsById(movieId, type, params)
       .then(item => setState({ movie: { ...item.data } }))
       .catch(error => setState({ error: error }));
-  }, [location.search,match.params.id]);
+  }, [location.search, match.params.id]);
 
   useEffect(() => {
     window.scrollTo({
@@ -72,7 +73,6 @@ const MovieItemFull = ({ location, match, history }) => {
   }
 
   function handleGoBack() {
-    
     if (location.state.from) {
       history.push(location.state.from.pathname + location.state.from.search);
       return;
@@ -93,57 +93,56 @@ const MovieItemFull = ({ location, match, history }) => {
       )}
 
       {state.movie && (
-        <div className={style.listItem}>
-          <button
-            
-            className={style.Button}
-            onClick={handleGoBack}
-          >
-            Go Back
-          </button>
-          <div>
-            <img
-              src={posterQuery + state.movie.poster_path}
-              className={style.listItemImg}
-              alt=""
-            />
+        <div>
+          <div className={style.ButtonContainer}>
+            <button className={style.ButtonBack} onClick={handleGoBack}>
+              НАЗАД
+            </button>
+            <NavLink
+              to={{
+                pathname: match.url + `/credits`,
+                state: { from: location.state.from },
+              }}
+              className={style.Button}
+              onClick={onClickCast}
+            >
+              АКТЕРЫ
+            </NavLink>
+            <NavLink
+              to={{
+                pathname: match.url + `/review`,
+                state: { from: location.state.from },
+              }}
+              className={style.Button}
+              onClick={onClickReviews}
+            >
+              ОТЗЫВЫ
+            </NavLink>
           </div>
-          <div>
-            <h3>{state.movie.title}</h3>
-            <p>
-              <b>Date:</b>{' '}
-              {state.movie.first_air_date
-                ? state.movie.first_air_date
-                : state.movie.release_date}
-            </p>
-            <p>
-              {' '}
-              <b> Vote: </b> {state.movie.vote_average}
-            </p>
-            <p>{state.movie.overview}</p>
-            <div className={style.ButtonContainer}>
-              <NavLink
-               
-                to={{
-                  pathname: match.url + `/credits`,
-                  state: { from: location.state.from },
-                }}
-                className={style.Button}
-                onClick={onClickCast}
-              >
-                Credits
-              </NavLink>
-              <NavLink
-                
-                to={{
-                  pathname: match.url + `/review`,
-                  state: { from: location.state.from },
-                }}
-                className={style.Button}
-                onClick={onClickReviews}
-              >
-                Reviews
-              </NavLink>
+
+          <div className={style.listItem}>
+            <div className={style.listItemImgContainer}>
+              <img
+                src={posterQuery + state.movie.poster_path}
+                className={style.listItemImg}
+                alt=""
+              />
+            </div>
+            <div className={style.listItemDescr}>
+              <p>
+                <b>Название: </b> {state.movie.title}
+              </p>
+              <p>
+                <b>Дата выхода: </b>
+                {state.movie.first_air_date
+                  ? state.movie.first_air_date
+                  : state.movie.release_date}
+              </p>
+              <p>
+                <b> Оценки: </b> {state.movie.vote_average}
+              </p>
+              <p><b>Жанр:</b> {state.movie.genres && state.movie.genres.map(item => <span className={style.listItemGenres}>{' '}{item.name}</span>)}</p>
+              <p>{state.movie.overview}</p>
             </div>
           </div>
         </div>
@@ -152,12 +151,12 @@ const MovieItemFull = ({ location, match, history }) => {
 
       <Switch>
         <Route
-          path={ match.url + `/credits`}
+          path={match.url + `/credits`}
           exact
           render={() => <Credits casts={state.cast} />}
         />
         <Route
-          path={ match.url + `/review`}
+          path={match.url + `/review`}
           exact
           render={() => <Reviews reviews={state.reviews} />}
         />
@@ -167,5 +166,3 @@ const MovieItemFull = ({ location, match, history }) => {
 };
 
 export default MovieItemFull;
-
-

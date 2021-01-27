@@ -2,7 +2,7 @@
     width: 100px;
 }
 .listItem{
-    margin: 5px;
+    margin: 5px ;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding: 5px;
     width: 102px;
@@ -23,6 +23,6 @@
     flex-wrap: wrap;
     /* justify-content: space-between; */
     font-family: 'Titillium Web', sans-serif;
-    padding: 5px;
+    padding: 10px;
     /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
   }

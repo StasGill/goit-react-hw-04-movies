@@ -8,7 +8,7 @@ const Credit = ({ casts = [] }) => {
   return (
     <>
       <ul className={style.movieList}>
-        {casts.map(item => (
+        {casts.map(item => ( item.profile_path &&
          <li className={style.listItem} key={item.id}>
             <img
               src={posterQuery + item.profile_path}

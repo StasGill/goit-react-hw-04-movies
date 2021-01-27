@@ -16,3 +16,7 @@ p{
   cursor: pointer;
 } */
 
+.loaderContainer{
+  width: 200px;
+  margin: 150px auto;
+}

@@ -1,17 +1,23 @@
 .listItem{
-    width: 1100px;
+    max-width: 1100px;
     display: flex;
+    flex-wrap: wrap;
     background-color: white;
     margin: 15px auto 15px auto;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     font-size: 20px;
-    padding: 5px;
+    padding: 10px;
     font-family: 'Titillium Web', sans-serif;
 }
 .listItemImg{
     width: 350px;
-    margin: 10px;
+    /* margin: 10px; */
+    
+}
+.listItemImgContainer{
+  width: 350px;
+  margin: 0 auto;
 }
 
 .listItem:hover {
@@ -29,13 +35,14 @@
     border: 0;
     text-decoration: none;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 18px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 22px;
     line-height: 24px;
     font-style: normal;
     font-weight: 500;
-    width: 180px;
-    margin: 10px auto 15px auto;
+    width: 150px;
+    height: 30px;
+    margin: 5px;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       font-family: 'Titillium Web', sans-serif;
@@ -49,8 +56,37 @@
 .ButtonContainer{
     display: flex;
     justify-content: space-between;
-    width: 600px;
-    margin: 60px auto;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0px auto 0px auto;
+    padding: 10px;
+}
+.ButtonBack{
+    border-radius: 2px;
+    background-color: #3f51b5;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 0;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    width: 180px;
+    height: 46px;
+    margin: 5px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      font-family: 'Titillium Web', sans-serif;
+      display: block;
+}
+.ButtonBack:hover,
+.ButtonBack:focus {
+  background-color: #303f9f;
 }
 
 .movieList{
@@ -86,9 +122,9 @@
 }
 
 .active{
-  padding: 8px 16px;
+    padding: 8px 16px;
     border-radius: 2px;
-    background-color: #636eb1;
+    background-color: #6f7ab9;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
     display: inline-block;
@@ -96,15 +132,28 @@
     border: 0;
     text-decoration: none;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 18px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 22px;
     line-height: 24px;
     font-style: normal;
     font-weight: 500;
     width: 180px;
-    margin: 10px auto 15px auto;
+    height: 30px;
+    /* margin: 10px auto 15px auto; */
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       font-family: 'Titillium Web', sans-serif;
       display: block;
+}
+.listItemDescr{
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.listItemGenres{
+  /* background-color: cyan; */
+  margin: 10px;
+  padding: 0px 4px 0px 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: default;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './Home.module.css';
-import { getProducts } from '../api/api';
+import { getProducts,getProductsTV } from '../api/api';
 import MovieItem from '../components/movieItem/MovieItem';
 import LoadMore from '../components/button/LoadMore';
 import Loader from "react-loader-spinner";
@@ -11,7 +11,7 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    getProducts().then(data =>
+    getProductsTV().then(data =>
        this.setState({ trendingFilms: data.data.results }),
     );
     this.setState({ loading: false })
@@ -19,7 +19,7 @@ export default class Home extends Component {
   }
 
   loadMore = () => {
-    getProducts(this.state.currentPage + 1).then(data =>
+    getProductsTV(this.state.currentPage + 1).then(data =>
       this.setState(prev => ({
         trendingFilms: [...prev.trendingFilms, ...data.data.results],
         currentPage: prev.currentPage + 1,
@@ -28,12 +28,12 @@ export default class Home extends Component {
   };
 
   onClick = e => {
-    const movie = "movie"
     const targetId = e.target.closest('[data-id]').dataset.id;
     this.props.history.push({
       pathname: `/movies/${targetId}`,
-      state: { id: targetId,
-               name: movie },
+      state: { 
+        id: targetId
+      },
     });
   };
 

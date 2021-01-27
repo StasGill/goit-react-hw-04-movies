@@ -24,7 +24,7 @@ export default class Movies extends Component {
             this.setState({ filtered: [...data.data.results] }))
             
      }else{
-      getProductsFilter('Love').then(data =>
+      getProductsFilter('A').then(data =>
         this.setState({ filtered: [...data.data.results]}))
      }
      
@@ -58,8 +58,8 @@ export default class Movies extends Component {
   };
 
   loadMore = () => {
-    const searchQQ = this.state.searchQuery;
-    getProductsFilter(searchQQ, this.state.currentPage + 1).then(data =>
+    const searchQQ = this.state.searchQuery ? this.state.searchQuery : 'A';
+    getProductsFilter(searchQQ , this.state.currentPage + 1).then(data =>
       this.setState(prev => ({
         filtered: [...prev.filtered, ...data.data.results],
         currentPage: prev.currentPage + 1,
@@ -89,7 +89,7 @@ export default class Movies extends Component {
             <MovieItem items={items} key={items.id} onClick={this.onClick} loc={this.props.location}/>
           ))}
         </ul>
-        {this.state.filtered.length >1 && <LoadMore onClick={this.loadMore} />}
+        {this.state.filtered.length > 1 && <LoadMore onClick={this.loadMore} />}
       </>
     );
   }
