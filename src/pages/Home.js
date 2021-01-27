@@ -28,7 +28,7 @@ export default class Home extends Component {
   };
 
   onClick = e => {
-    const movie = "movie"
+    
     const targetId = e.target.closest('[data-id]').dataset.id;
     this.props.history.push({
       pathname: `/movies/${targetId}`,
