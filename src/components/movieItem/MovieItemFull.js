@@ -32,7 +32,7 @@ const MovieItemFull = ({ location, match, history }) => {
     getProductsById(movieId, params)
       .then(item => setState({ movie: { ...item.data } }))
       .catch(error => setState({ error: error }));
-  }, []);
+  }, [location.search,match.params.id]);
 
   useEffect(() => {
     window.scrollTo({
