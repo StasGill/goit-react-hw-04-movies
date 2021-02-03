@@ -63,6 +63,7 @@ export default class Movies extends Component {
 
   onClick = e => {
     const targetId = e.target.closest('[data-id]').dataset.id;
+    console.log(targetId);
     // this.props.history.push({
     //   pathname: `/movies/${targetId}`,
     //   state: { id: targetId },
