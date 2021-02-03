@@ -153,6 +153,9 @@
 .listItemGenres{
   /* background-color: cyan; */
   margin: 10px;
+  width: 125px;
+  text-align: center;
+  display: inline-block;
   padding: 0px 4px 0px 4px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   cursor: default;

@@ -14,7 +14,7 @@ const Header = () => {
          <ul className={style.list}>
           <li>  <NavLink to={{pathname: "/", state: { from: location.pathname }, }} exact className={style.link} activeClassName={style.active}> ТРЕНДЫ </NavLink></li>
           {/* <li>  <NavLink to='/tv' className={style.link} activeClassName={style.active}> СЕРИАЛЫ </NavLink></li> */}
-          <li>  <NavLink to='/movies' className={style.link} activeClassName={style.active}> ФИЛЬМЫ </NavLink></li>
+          <li>  <NavLink to='/movies' className={style.link} activeClassName={style.active}> ПОИСК </NavLink></li>
           
         </ul>
        </div>

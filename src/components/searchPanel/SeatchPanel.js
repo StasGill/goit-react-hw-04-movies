@@ -12,7 +12,7 @@ const Searchbar = ({ onChange, onSubmit, value }) => {
         <input
           className={style.SearchForminput}
           type="text"
-          placeholder="Search movies"
+          placeholder="Поиск фильмов..."
           name="searchQuery"
           onChange={onChange}
           value={value}

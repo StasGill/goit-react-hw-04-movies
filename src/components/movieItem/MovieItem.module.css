@@ -6,9 +6,11 @@
     padding: 5px;
     font-family: 'Titillium Web', sans-serif;
     text-align: center;
+    /* height:450px; */
 }
 .listItemImg{
     width: 250px;
+    height: 370px;
     margin: 5px;
 }
 
@@ -22,4 +24,7 @@
     text-decoration: none;
     color: black;
     margin: 0 auto;
+  }
+  .listItemHeader{
+    max-width: 230px;
   }

@@ -27,13 +27,13 @@ const MovieItemFull = ({ location, match, history }) => {
     setState({ loading: true });
 
     const movieId = match.params.id;
-    
+
     const params = location.search;
 
     getProductsById(movieId, params)
       .then(item => setState({ movie: { ...item.data } }))
       .catch(error => setState({ error: error }));
-  }, [location.search, match.params.id,match.params.type]);
+  }, [location.search, match.params.id, match.params.type]);
 
   useEffect(() => {
     window.scrollTo({
@@ -50,10 +50,10 @@ const MovieItemFull = ({ location, match, history }) => {
   }, [state.reviews]);
 
   function onClickCast() {
-    history.push({
-      pathname: location.pathname,
-      search: `/credits`,
-    });
+    // history.push({
+    //   pathname: location.pathname,
+    //   search: `/credits`,
+    // });
     const movieId = match.params.id;
     getProductsByIdCast(movieId).then(data =>
       setState(prev => ({ ...prev, cast: [...data.data.cast] })),
@@ -61,10 +61,10 @@ const MovieItemFull = ({ location, match, history }) => {
   }
 
   function onClickReviews() {
-    history.push({
-      pathname: location.pathname,
-      search: `/review`,
-    });
+    // history.push({
+    //   pathname: location.pathname,
+    //   search: `/review`,
+    // });
 
     const movieId = match.params.id;
     getProductsByIdReviews(movieId).then(data =>
@@ -94,6 +94,37 @@ const MovieItemFull = ({ location, match, history }) => {
 
       {state.movie && (
         <div>
+          <div className={style.listItem}>
+            <div className={style.listItemImgContainer}>
+              <img
+                src={posterQuery + state.movie.poster_path}
+                className={style.listItemImg}
+                alt=""
+              />
+            </div>
+            <div className={style.listItemDescr}>
+              <p>
+                <b>Название: </b> {state.movie.title}
+              </p>
+              <p>
+                <b>Дата выхода: </b>
+                {state.movie.first_air_date
+                  ? state.movie.first_air_date
+                  : state.movie.release_date}
+              </p>
+              <p>
+                <b> Оценки: </b> {state.movie.vote_average}
+              </p>
+              <p>
+                <b>Жанр:</b>{' '}
+                {state.movie.genres &&
+                  state.movie.genres.map(item => (
+                    <span className={style.listItemGenres}> {item.name}</span>
+                  ))}
+              </p>
+              <p>{state.movie.overview}</p>
+            </div>
+          </div>
           <div className={style.ButtonContainer}>
             <button className={style.ButtonBack} onClick={handleGoBack}>
               НАЗАД
@@ -118,32 +149,6 @@ const MovieItemFull = ({ location, match, history }) => {
             >
               ОТЗЫВЫ
             </NavLink>
-          </div>
-
-          <div className={style.listItem}>
-            <div className={style.listItemImgContainer}>
-              <img
-                src={posterQuery + state.movie.poster_path}
-                className={style.listItemImg}
-                alt=""
-              />
-            </div>
-            <div className={style.listItemDescr}>
-              <p>
-                <b>Название: </b> {state.movie.title}
-              </p>
-              <p>
-                <b>Дата выхода: </b>
-                {state.movie.first_air_date
-                  ? state.movie.first_air_date
-                  : state.movie.release_date}
-              </p>
-              <p>
-                <b> Оценки: </b> {state.movie.vote_average}
-              </p>
-              <p><b>Жанр:</b> {state.movie.genres && state.movie.genres.map(item => <span className={style.listItemGenres}>{' '}{item.name}</span>)}</p>
-              <p>{state.movie.overview}</p>
-            </div>
           </div>
         </div>
       )}
